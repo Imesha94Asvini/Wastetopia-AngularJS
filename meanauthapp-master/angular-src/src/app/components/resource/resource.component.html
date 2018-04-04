@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="../../../assets/css/ionicons.min.css">
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="cont maincont">
+        <ul class="b-crumbs">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li><a [routerLink]="['/store']">Store</a></li>
+          <li>Resource</li>
+        </ul>
+        <flash-messages></flash-messages>
+        <article>
+          <div class="prod">
+            <div class="prod-slider-wrap prod-slider-shown">
+              <div class="flexslider prod-slider" id="prod-slider">
+                <ul class="slides">
+                  <li>
+                    <a data-fancybox-group="prod" class="fancy-img" href="">
+                      
+                    </a>
+                  </li>
+                  
+                </ul>
+                
+              </div>
+              <img src={{selResource.image}} alt="">
+            </div>
+            
+            <div class="prod-cont">
+              
+              <p class="prod-categs">
+                <a href="#">{{selResource.catergoryName}}</a>
+                
+              </p>
+              <h1>{{selResource.resourceName}}</h1>
+              <div class="variations_form cart">
+                <p class="prod-price">{{selResource.unitPrice}}.LKR</p>
+                <p class="prod-excerpt">{{selResource.description}}
+                </p>
+                <div class="prod-add">
+              
+                  <button (click)="addToCart()" class="button">
+                    <i class="icon ion-android-cart"></i> Add to cart</button>&nbsp;  &nbsp;Quantity
+                  <p class="qnt-wrap prod-li-qnt">
+                    <a (click)="qUp()" class="qnt-plus prod-li-plus">
+                      <i class="icon ion-arrow-up-b"></i>
+                    </a>
+                    <input type="text" [(ngModel)]="qRequested">
+                    <a (click)="qDown()" class="qnt-minus prod-li-minus">
+                      <i class="icon ion-arrow-down-b"></i>
+                    </a>
+                  </p>
+                
+                
+                </div>
+              </div>
+              <div class="prod-props">
+                <dl class="product_meta">
+                  <dt>Seller Name:</dt>
+                  <dd>{{selResource.companyName}}</dd>
+                  
+                  
+                  <dt>Available Quantity:</dt>
+                  <dd>{{selResource.availableQuantity}}</dd>
+
+                  <!--<input type="text" [(ngModel)]="selResource.availableQuantity"> -->
+
+                 
+                </dl>
+              </div>
+            </div>
+            
+          </div>
+
+
+
+        </article>
+      </div>
+    </main>
+    <!-- #main -->
+  </div>
+  <!-- #primary -->
+
+
+  <!-- Elements -->
+
+
+
+
+</div>

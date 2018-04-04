@@ -1,0 +1,42 @@
+<div id="content" class="site-content">
+  <div id="primary" class="content-area width-full">
+    <main id="main" class="site-main">
+      <div class="cont">
+        <h1 class="maincont-ttl">Place Order</h1>
+        <ul class="b-crumbs">
+          <li>
+            <a [routerLink]="['/home']">Home</a>
+          </li>
+          <li>
+            <a [routerLink]="['/store']">store</a>
+          </li>
+
+          <li>View More</li>
+        </ul>
+      </div>
+      <div class="maincont page-styling page-full">
+
+
+        <div class="cont row-wrap-boxed contacts-page">
+          <div class="page-cont">
+            <div class="row">
+              <div class="cf-lg-6">
+                <h3 style="color:black">Buyer Name: &nbsp; &nbsp; &nbsp; &nbsp;{{req.FName}} {{req.LName}}</h3>
+                
+                <h3 style="color:black">Requested Resource Name:&nbsp; &nbsp; &nbsp; &nbsp;{{req.Req_Resource_Name}}</h3>
+                
+                <h3 style="color:black">Requested Quantity:&nbsp; &nbsp; &nbsp; &nbsp;{{req.Req_Quantity}}</h3>
+                
+                <h3 style="color:black">Sub Category:&nbsp; &nbsp; &nbsp; &nbsp;{{req.SubCatName}}</h3>
+                
+                <h3 style="color:black">Description:&nbsp; &nbsp; &nbsp; &nbsp;{{req.Description}}</h3>
+                
+
+
+                <div class="cf-lg-2 col-sm-2">
+                  <div class="vc_column-inner ">
+
+                  </div>
+                </div>
+              </div>
+            </div>

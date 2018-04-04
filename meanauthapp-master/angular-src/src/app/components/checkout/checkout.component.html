@@ -1,0 +1,189 @@
+<div id="content" class="site-content">
+  <div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+      <div class="cont maincont">
+        <h1 class="maincont-ttl">Checkout</h1>
+        <ul class="b-crumbs">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li>Checkout</li>
+        </ul>
+        <article class="page-cont">
+          <div class="page-styling">
+
+
+            <div class="woocommerce">
+
+
+             
+
+
+                <div class="col2-set" id="customer_details">
+                  <div class="col-12">
+                    <div class="woocommerce-billing-fields">
+
+                      <h3>Billing details</h3>
+
+
+                      <div class="woocommerce-billing-fields__field-wrapper">
+
+
+                        <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+                          <label for="billing_company" class="">Company name</label>
+                          
+                         
+                        </p>
+                        <p>{{user.Company_Name}}</p>
+                        <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
+
+
+                          <noscript>
+                            <input type="submit" name="woocommerce_checkout_update_totals" value="Update country" />
+                          </noscript>
+                        </p>
+                        <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
+                          <label for="billing_address_1" class="">Delivery address
+                            <abbr class="required" title="required">*</abbr>
+                          </label>
+                          <p>{{user.Street_address}}</p>
+                        
+
+                        <p class="form-row form-row-wide address-field validate-required" id="billing_city_field" data-priority="70">
+                          <label for="billing_city" class="">Town / City
+                            <abbr class="required" title="required">*</abbr>
+                          </label>
+
+                        </p>
+                        <p class="form-row form-row-wide address-field validate-required validate-state" id="billing_state_field" data-priority="80">
+
+                          
+                          <p>{{user.City}}</p>
+
+                        <p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-priority="100">
+                          <label for="billing_phone" class="">Phone
+                            <abbr class="required" title="required">*</abbr>
+                          </label>
+                          <p>{{user.Contactno}}</p>
+                        
+                        <p class="form-row form-row-last validate-required validate-email" id="billing_email_field" data-priority="110">
+                          <label for="billing_email" class="">Email address
+                            <abbr class="required" title="required">*</abbr>
+                          </label>
+                          <p>{{user.Username}}</p>
+                        
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="col-12">
+
+
+                  </div>
+                </div>
+
+
+                <h3 id="order_review_heading">Your order</h3>
+
+
+                <div id="order_review" class="woocommerce-checkout-review-order">
+                  <table class="shop_table woocommerce-checkout-review-order-table">
+                    <thead>
+                      <tr>
+                        <th class="product-name">Product</th>
+                        <th class="product-total">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of shoppingCartArray" class="cart_item">
+                        <td class="product-name">
+                          {{item.resourceName}}&nbsp;
+                          <strong class="product-quantity">&times; {{item.quantityRequested}}</strong>
+                        </td>
+                        <td class="product-total">
+                          <span class="woocommerce-Price-amount amount">
+                            <span class="woocommerce-Price-currencySymbol">LKR </span>{{item.quantityRequested*item.unitPrice}}</span>
+                        </td>
+                      </tr>
+
+
+                    </tbody>
+                    <tfoot>
+
+                      <tr class="cart-subtotal">
+                        <th>Subtotal</th>
+                        <td>
+                          <span class="woocommerce-Price-amount amount">
+                            <span class="woocommerce-Price-currencySymbol">LKR </span>{{444}}</span>
+                        </td>
+                      </tr>
+
+
+                      <tr class="shipping">
+                        <th>Delivery</th>
+                        <td data-title="Shipping">
+                          Free Delivery
+                          <input type="hidden" name="shipping_method[0]" data-index="0" id="shipping_method_0" value="free_shipping:1" class="shipping_method"
+                          />
+
+                        </td>
+                      </tr>
+
+
+                      <tr class="order-total">
+                        <th>Total</th>
+                        <td>
+                          <strong>
+                            <span class="woocommerce-Price-amount amount">
+                              <span class="woocommerce-Price-currencySymbol">LKR </span>{{total}}</span>
+                          </strong>
+                        </td>
+                      </tr>
+
+
+                    </tfoot>
+                  </table>
+                  <div id="payment" class="woocommerce-checkout-payment">
+                    <ul class="wc_payment_methods payment_methods methods">
+                      <li class="wc_payment_method payment_method_cheque">
+                        <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque" checked='checked'
+                          data-order_button_text="" />
+
+
+                      </li>
+                      <li class="wc_payment_method payment_method_paypal">
+                        <h1 *ngIf="loading">Loading...</h1>
+                        <div id="paypal-button"></div>
+
+
+                        <div class="payment_box payment_method_paypal" style="display:none;">
+                          <p>
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                    <div class="form-row place-order">
+                      
+
+
+                      <input (click)="onCheckout()" type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order"
+                        data-value="Place order" />
+
+                      <input type="hidden" id="_wpnonce" name="_wpnonce" value="6f6a2b42bd" />
+                      <input type="hidden" name="_wp_http_referer" value="/multishop/order/" />
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <!-- #main -->
+  </div>
+  <!-- #primary -->
+</div>

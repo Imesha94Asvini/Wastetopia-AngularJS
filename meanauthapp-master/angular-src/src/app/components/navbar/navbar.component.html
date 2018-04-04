@@ -1,0 +1,220 @@
+
+
+    <nav class="navbar navbar-light bg-faded justify-content-between">
+        <a class="navbar-brand">wastetopia1@gmail.com</a>
+        <div class="site-header">
+
+        <div class="h-shop">
+
+            <ul class="h-shop-links">
+                <li class="">
+    
+          <li class="h-shop-icon h-profile ">
+    
+            <a  title="My Account ">
+    
+              <i class="ion-android-person" [routerLink]="['/login']" ></i>
+    
+            </a>
+    
+            <ul class="h-profile-links ">
+    
+              <li>
+                <a [routerLink]="['/login']">Login</a>
+              </li>
+              <li>
+                <a [routerLink]="['/register']">Sign up</a>
+              </li>
+              <li>
+                  <a [routerLink]="['/profile']">My Account</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/home']" (click)="onLogoutClick()">Log Out</a>
+                  </li>
+    
+            </ul>
+    
+          </li>
+    
+    
+    
+          <li class="h-cart ">
+    
+            <a class="cart-contents " [routerLink]="['/cart']">
+    
+              <p class="h-cart-icon ">
+    
+                <i class="ion-android-cart "></i>
+    
+                <span>{{shoppingCartService.shoppingCartArray.length}}</span>
+    
+              </p>
+    
+              <p class="h-cart-total ">LKR.</p>
+    
+            </a>
+    
+            <div class="widget_shopping_cart ">
+    
+              <div class="widget_shopping_cart_content ">
+    
+    
+                <p class="total ">
+                  <b>Subtotal:</b> Total</p>
+    
+                <p class="buttons ">
+    
+                  <a [routerLink]="['/cart']" class="button ">View cart</a>
+    
+                  <a [routerLink]="['/checkout']"class="button ">Checkout</a>
+    
+                </p>
+    
+              </div>
+    
+            </div>
+    
+          </li>
+    
+    
+
+    
+        </ul>
+    
+      </div>
+ 
+        </div>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" [(ngModel)]="searchStr">
+              </div>
+              <button type="submit" style="  
+        
+              margin-left: 0px;
+              background-color: green;
+              color: white;
+              border: none;
+              padding: 6px;
+              text-align: right;
+              border-radius: 4px;
+          
+             
+              z-index: 1;
+              " (click)="search()">Search</button>
+        </form>
+       
+      </nav>
+    
+    <div class="site-header">
+  
+  
+  
+    <p class="h-logo">
+  
+      <a [routerLink]="['/home']">
+        <img src="../../../assets/images/logo.png" alt="MultiShop">
+      </a>
+  
+    </p>
+
+    <div class="h-shop">
+
+      <ul class="h-shop-links">
+          <li class="">
+              <h5 ><button style="    background-color: #4CAF50; /* Green */
+   border: none;
+   color: white;
+   padding: 7px 8px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px; border-radius: 4px;"><a [routerLink]="['/add-resource']"> &nbsp;Add resource</a></button> &nbsp; &nbsp; 
+   <button  style="    background-color: blue; /* Green */
+   border: none;
+   color: white;
+   padding: 7px 8px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px; border-radius: 4px;"><a [routerLink]="['/request-resource']">Request resource</a></button></h5>
+              
+
+                   
+
+
+           </li>
+
+  
+      </ul>
+  
+    </div>
+  
+    <div class="mainmenu ">
+  
+  
+  
+      <nav id="h-menu " class="h-menu ">
+        
+  
+        <ul>
+        
+  
+  
+          <li routerLinkActive="active" >
+  
+            <a [routerLink]="['/home']">Home</a>
+  
+  
+          </li>
+  
+          <li routerLinkActive="active">
+  
+            <a [routerLink]="['/store']">Store</a>
+  
+  
+  
+            <li routerLinkActive="active">
+  
+              <a [routerLink]="['/elements']">Dashboard</a>
+  
+            </li>
+  
+  
+            <li class="menu-item-has-children " routerLinkActive="active">
+  
+              <a >Pages</a>
+  
+              <ul class="sub-menu ">
+  
+                <li>
+  
+                  <a [routerLink]="['/aboutus']">About Us</a>
+  
+                </li>
+  
+                <li>
+  
+                  <a [routerLink]="['/contactus']">Contact us</a>
+  
+                </li>
+  
+              
+  
+  
+  
+              </ul>
+  
+            </li>
+  
+        </ul>
+  
+      </nav>
+  
+  
+  
+    </div>  
+  </div>
+  
+     
+  <router-outlet></router-outlet>
+     

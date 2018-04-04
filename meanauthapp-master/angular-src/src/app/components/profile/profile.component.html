@@ -1,0 +1,313 @@
+
+<div class="col-12" >
+        <hr>
+        <div class="container bootstrap snippet">
+            <div class="row">
+                <div class="col-10">
+                    <h1>{{user.FName}} {{user.LName}}</h1></div>
+                <div class="col-2">
+                    <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="../../../assets/images/avatar7.png"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <!--left col-->
+        
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Profile</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span>{{user.created_at}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span>{{user.Username}}</li>
+        
+                    </ul>
+        
+                  
+        
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Added Resources</strong></span> {{resourcesById.length}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Requested Resources</strong></span> {{requestById.length}} </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Buying Orders</strong></span> {{ordersById.length}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Selling Orders</strong></span>{{salesById.length}}</li>
+                    </ul>
+        
+                   <!-- <div class="panel panel-default">
+                        <div class="panel-heading">Social Media</div>
+                        <div class="panel-body">
+                            <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                        </div>
+                    </div>-->
+        
+                </div>
+                <!--/col-3-->
+                <div class="col-9">
+        
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#addedResources" data-toggle="tab"> Added Resources &nbsp; &nbsp; </a></li>
+        
+        
+                        <li><a href="#requestedResources" data-toggle="tab"> Requested Resources &nbsp; &nbsp; </a></li>
+        
+                        <li><a href="#buyingOrders" data-toggle="tab"> Buying Order &nbsp;  &nbsp; </a></li>
+                        <li><a href="#sellingOrders" data-toggle="tab"> Selling Orders &nbsp;  &nbsp; </a></li>
+        
+                        <li><a href="#settings" data-toggle="tab"> Settings</a></li>
+                       
+                    </ul>
+        
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="addedResources">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr >
+                                              <th><h5>Resource Id</h5></th>
+                                            <th><h5>Resources Name</h5></th>
+                                            <th><h5>Quantity</h5></th>
+                                            <th><h5>Unit Price</h5></th>
+                                            <th><h5>Added Date</h5></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="items">
+                                        <tr *ngFor="let item of resourcesById">
+                                            <td>{{item.idResource}}</td>
+                                            <td>{{item.ResourceName}}</td>
+                                            <td>{{item.Quantity}}</td>
+                                            <td>{{item.UnitPrice}}.LKR</td>
+                                            <td>{{item.Added_Date}}</td>
+                                            
+                                        </tr>
+                          
+        
+        
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-4 col-md-offset-4 text-center">
+                                        <ul class="pagination" id="myPager"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/table-resp-->
+        
+        
+        
+        
+        
+                            <hr>
+        
+                        </div>
+                        <!--/tab-pane-->
+                        <div class="tab-pane" id="requestedResources">
+        
+                            <h2></h2>
+        
+                                <div class="table-responsive">
+                                 <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><h5>Request Id</h5></th>
+                                            <th><h5>Resource Name</h5></th>
+                                            <th><h5>Quantity</h5></th>
+                                           <th><h5>Added Date</h5></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="items">
+                                        <tr *ngFor="let item of requestById">
+                                            <td>{{item.idRequested_Resource}}</td>
+                                            <td>{{item.Req_Resource_Name}}</td>
+                                            <td>{{item.Req_Quantity}}</td>
+                                            <td>{{item.Requested_Date}}</td>
+                                            
+                                        </tr>
+                          
+        
+        
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-4 col-md-offset-4 text-center">
+                                        <ul class="pagination" id="myPager"></ul>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+        
+                        <!--/tab-pane-->
+        <div class="tab-pane" id="buyingOrders">
+        
+                            <h2></h2>
+        
+                                <div class="table-responsive">
+                                 <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                              <th><h5>Order Id</h5></th>
+                                            <th><h5>Total Price</h5></th>
+                                            <th><h5>Orderd Date</h5></th>
+                                            <th><h5>more</h5></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="items">
+                                       <tr *ngFor="let order of ordersById " >
+                                            <td>{{order.idOrder}}</td>
+                                            <td>{{order.TotalPrice}}.LKR</td>
+                                            <td>{{order.order_date}}</td>
+                                           <button (click)="onOrderView(order)">view more</button>
+                                        </tr>
+                                      
+        
+        
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-4 col-md-offset-4 text-center">
+                                        <ul class="pagination" id="myPager"></ul>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+        
+                       <!--selling-->
+        
+        <div class="tab-pane" id="sellingOrders">
+        
+                            <h2></h2>
+        
+                                <div class="table-responsive">
+                                 <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                              <th><h5>Resource Id</h5></th>
+                                            <th><h5>Resources Name</h5></th>
+                                            <th><h5>Quantity</h5></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="items">
+                                        <tr *ngFor="let sell of salesById ">
+                                            <td>{{sell.idResource}}</td>
+                                            <td>{{sell.ResourceName}}</td>
+                                            <td>{{sell.order_item_amount}}</td>
+                                            
+                                        </tr>
+                          
+        
+        
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-4 col-md-offset-4 text-center">
+                                        <ul class="pagination" id="myPager"></ul>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+        
+        
+        
+                   
+        
+        
+        
+                        <div class="tab-pane" id="settings">
+        
+                            <hr>
+                            <form class="form" action="##" method="post" id="registrationForm">
+                                <div class="form-group">
+                                    
+                                    <div class="col-6">
+                                        <label for="first_name">
+                                            <h4>First name</h4></label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name"  title="enter your first name if any." [(ngModel)]="fName">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+        
+                                    <div class="col-6">
+                                        <label for="last_name">
+                                            <h4>Last name</h4></label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name"  title="enter your last name if any." [(ngModel)]="lName">
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+        
+                                    <div class="col-6">
+                                        <label for="phone">
+                                            <h4>Phone</h4></label>
+                                        <input type="text" class="form-control" name="phone" id="phone"  title="enter your phone number if any." [(ngModel)]="contactno">
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+        
+                                    <div class="col-6">
+                                        <label for="email">
+                                            <h4>Street Address</h4></label>
+                                        <input type="text" class="form-control" name="street" id="street"  title="enter a location" [(ngModel)]="street" >
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+        
+                                    <div class="col-6">
+                                        <label for="email">
+                                            <h4>City</h4></label>
+                                        <input type="text" class="form-control" name="city" id="city"  title="enter a city" [(ngModel)]="city">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" (click)="onUpdateClick()" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <flash-messages></flash-messages>
+                                    <div class="col-6">
+                                        <label for="password">
+                                            <h4>Password</h4></label>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password." [(ngModel)]="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+        
+                                    <div class="col-6">
+                                        <label for="password2">
+                                            <h4>Verify</h4></label>
+                                        <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2."[(ngModel)]="confirm_password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" (click)="onUpdateClickPassword()" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Reset Password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+        
+                    </div>
+                    <!--/tab-pane-->
+                </div>
+                <!--/tab-content-->
+        
+            </div>
+            <!--/col-9-->
+        </div>
+        <!--/row--></div>
+   

@@ -1,0 +1,122 @@
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="cont maincont">
+
+        <div class="section-top">
+
+          <h1 class="maincont-ttl">Store</h1>
+          <ul class="b-crumbs">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li>Store</li>
+          </ul>
+        </div>
+
+        <!-- To make Sidebar "Not Sticky" just remove  id="section-list-withsb" -->
+        <div class="section-wrap-withsb">
+          <aside class="blog-sb-widgets section-sb" id="section-sb">
+            <div class="theiaStickySidebar">
+             
+              <div class="section-filter">
+                <div class="section-filter">
+                  <div class="blog-sb-widget multishopcategories_widget">
+                    <h3 class="widgettitle">Categories</h3>
+                    <div class="section-sb-current">
+                        <ul class="section-sb-list">
+  
+  
+                          <li>
+                            <a (click)="selectAll()">
+                              
+                              <span class="section-sb-label">All
+                               
+                              </span>
+                            </a>
+  
+                          </li>
+                         
+                          
+                          
+      
+                          
+                        </ul>
+                      </div>
+                    <div *ngFor="let cat of catArray" class="section-sb-current">
+                      <ul class="section-sb-list">
+
+
+                        <li>
+                          <a (click)="catSelect(cat)">
+                            
+                            <span class="section-sb-label">{{cat.CatergoryName}}
+                             
+                            </span>
+                          </a>
+
+                        </li>
+                       
+                        
+                        
+    
+                        
+                      </ul>
+                    </div>
+                  </div>
+
+          
+                  <div class="blog-sb-widget multishopbrands_widget">
+                    <h3 class="widgettitle">Requested items</h3>
+                    <ul class="brands-list-sb">
+                      <li *ngFor="let res of reqResArray">
+                          <a (click)="selectReq(res)">{{res.Req_Resource_Name}}
+                            <span class="count">{{res.Req_Quantity}}</span>
+
+                        
+                          
+                        </a>
+                      </li>                                        
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <div class="section-list-withsb" id="section-list-withsb">
+            <div class="theiaStickySidebar">
+
+              <div class="row prod-items prod-items-2">
+
+                <article *ngFor="let res of resArray" class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                  <div class="sectgl prod-i">
+                    <div class="prod-i-top">
+                      <a class="prod-i-img" (click)="selectRes(res)">
+                        <img src={{res.Image}} alt=""/>
+                      </a>
+                    </div>
+                    <div class="prod-i-bot">
+                      <div class="prod-i-info">
+                        <p class="prod-i-price">Unit Price:{{res.UnitPrice}}.LKR</p>
+                        <p class="prod-i-categ">
+                          <a href="catalog-gallery.php">{{ res.CatergoryName }}</a>
+                        </p>
+                      </div>
+                      <h3 class="prod-i-ttl">
+                        <a href="" (click)="selectRes(res)">{{res.ResourceName}}</a>
+                        <p class="prod-i-price">Available Quantity: {{res.Quantity}}</p>
+                      </h3>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+            <!-- .theiaStickySidebar -->
+          </div>
+          <!-- .section-list-withsb -->
+        </div>
+        <!-- .section-wrap-withsb -->
+
+      </div>
+    </main>
+  </div>
+</div>

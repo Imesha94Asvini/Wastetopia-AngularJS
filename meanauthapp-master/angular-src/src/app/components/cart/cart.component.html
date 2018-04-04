@@ -1,0 +1,107 @@
+<div id="content" class="site-content">
+  <div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+      <div class="cont maincont">
+        <h1 class="maincont-ttl">Cart</h1>
+        <ul class="b-crumbs">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li>Cart</li>
+        </ul>
+        <div class="page-styling">
+
+
+          <div class="woocommerce prod-litems section-list">
+
+            <article *ngFor="let res of shoppingCartArray" class="prod-li sectls">
+              <div class="prod-li-inner">
+
+                <a href="product.html" class="prod-li-img">
+                  <img src={{res.image}} alt="">
+                </a>
+              
+                <div class="prod-li-cont">
+                  <div class="prod-li-ttl-wrap">
+                    
+                    <h3>
+                        {{res.resourceName}}
+                    </h3>
+                  </div>
+                  <!--
+            No Space
+            -->
+                  <div class="prod-li-prices">
+                    <div class="prod-li-price-wrap">
+                      <p>Price</p>
+                      <p class="prod-li-price">{{res.unitPrice}}.LKR</p>
+                    </div>
+                    
+                    <div class="prod-li-qnt-wrap">
+                      <p class="qnt-wrap prod-li-qnt">
+                        <a (click)="qUp(res)" class="qnt-plus prod-li-plus">
+                          <i class="icon ion-arrow-up-b"></i>
+                        </a>
+                        <input type="text" [value]="res.quantityRequested">
+                        <a (click)="qDown(res)" class="qnt-minus prod-li-minus">
+                          <i class="icon ion-arrow-down-b"></i>
+                        </a>
+                      </p>
+                    </div>
+                    <div class="prod-li-total-wrap">
+                      <p>Total</p>
+                      <p class="prod-li-total">{{res.unitPrice*res.quantityRequested}}.LKR</p>
+                    </div>
+                  </div>
+                </div><!--
+    No Space
+-->
+                
+                <div class="prod-li-info">
+
+
+
+                 
+                  <p class="prod-li-add">
+                    <a (click)="removeResource(res)" class="button hover-label prod-addbtn">
+                      <i class="icon ion-close-round"></i>
+                      <span>Remove</span>
+                    </a>
+                  </p>
+                 
+
+
+                  
+                  
+                  
+               
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+
+          <div class="cart-actions">
+            <div class="coupon">
+             <a [routerLink]="['/store']">
+             <input type="text" placeholder="">
+              <input type="submit" class="button" value="Continue Shopping"></a>
+            </div>
+            <div class="cart-collaterals">
+              <a [routerLink]="['/checkout']" class="checkout-button button">Proceed to checkout</a>
+              <div class="order-total">
+                <p class="cart-totals-ttl">Total</p>
+                <p class="cart-totals-val">{{total}}</p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </main>
+    <!-- #main -->
+  </div>
+  <!-- #primary -->
+</div>
+<!-- #content -->
+

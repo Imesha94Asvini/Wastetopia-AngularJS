@@ -1,0 +1,83 @@
+<div id="content" class="site-content">
+  <div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+      <div class="cont maincont">
+        <h1 class="maincont-ttl">Sign Up</h1>
+        <ul class="b-crumbs">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li>Sign up</li>
+        </ul>
+        <article class="page-cont">
+          
+          <div class="auth-wrap" >
+ 
+            <div class="auth-col"  >
+              <h2>Register</h2>
+              <flash-messages></flash-messages>
+              <form method="post" class="register">
+                <p>
+                  <label for="first_name">First Name
+                    <span class="required"></span>
+                  </label>
+                  <input type="text" name="first_name" [(ngModel)]="FName">
+                </p>
+                <p>
+                  <label for="last_name">Last Name
+                    <span class="required"></span>
+                  </label>
+                  <input type="text" name="last_name" [(ngModel)]="LName">
+                </p>
+                <p>
+                  <label for="company_name">Company Name
+                    <span class="required"></span>
+                  </label>
+                  <input type="text" name="company_name" [(ngModel)]="Company_Name">
+                </p>
+                <p>
+                    <label for="company_name">Street Address
+                      <span class="required"></span>
+                    </label>
+                    <input type="text" name="street_address" [(ngModel)]="Street_address">
+                  </p>
+                  <p>
+                  <label for="company_name">City
+                    <span class="required"></span>
+                  </label>
+                  <input type="text" name="city" [(ngModel)]="City">
+                </p>
+                <p>
+                  <label for="contact_no">Contact No.
+                    <span class="required"></span>
+                  </label>
+                  <input type="text" name="contact_no" [(ngModel)]="Contactno">
+                </p>
+                <p>
+                  <label for="reg_email">Email
+                    <span class="required">*</span>
+                  </label>
+                  <input type="email" name="Email" id="reg_email" [(ngModel)]="Username">
+                </p>
+                <p>
+                  <label for="reg_password">Password
+                    <span class="required">*</span>
+                  </label>
+                  <input type="password" name="Password" id="reg_password" [(ngModel)]="Password">
+                </p>
+                <p>
+                  <label for="re_enter_password">Re Enter Password
+                    <span class="required"></span>
+                  </label>
+                  <input type="password" name="confirm_password" id="confirm_password" [(ngModel)]="confirm_password" >
+                  <span ng-show=" reg_password!= c_password">Your passwords must match.</span>
+                </p>
+                <p class="auth-submit">
+                  <input type="submit" value="Register" (click)="onRegisterSubmit()">
+                </p>
+              </form>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+</div>

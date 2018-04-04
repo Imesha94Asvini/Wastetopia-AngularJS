@@ -1,0 +1,159 @@
+<div id="content" class="site-content">
+  <div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+      <div class="cont maincont">
+        <h1 class="maincont-ttl">Add Resource</h1>
+
+        <ul class="b-crumbs">
+          <li>
+            <a [routerLink]="['/home']">Home</a>
+          </li>
+          <li>Add Resource </li>
+        </ul>
+
+        <article class="page-cont">
+
+          <flash-messages></flash-messages>
+
+
+
+
+          <div class="page-styling">
+            <div class="woocommerce">
+
+
+              <form name="checkout" method="post" class="checkout woocommerce-checkout" action="#">
+
+
+                <div class="col2-set" id="customer_details">
+                  <div class="col-6">
+                    <div class="woocommerce-billing-fields">
+
+
+
+
+                      <div class="woocommerce-billing-fields__field-wrapper">
+
+
+
+                        <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
+                          <label for="billing_first_name" class="">Item name
+                            <abbr class="required" title="required">*</abbr>
+                          </label>
+                          <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="" value="" autocomplete="given-name"
+                            autofocus="autofocus" [(ngModel)]="itemName" />
+                        </p>
+                        <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
+                          <label for="billing_country" class="">Catagory
+                            <abbr class="required" title="required">*</abbr>
+                          </label>
+                          <br>
+
+
+
+                          <select name="catergorySelection" class="form-control form-control-lg" [(ngModel)]="selCat" (change)="getSubCat()" name="catagory">
+                            <option value="E waste">E waste</option>
+                            <option value="Textile">Textile</option>
+                            <option value="Plastic">Plastic</option>
+                           
+                            <option value="Wood-">Wood</option>
+                            <option value="Paper">Paper</option>
+                            <option value="Rubber">Rubber</option>
+                          
+                            <option value="Glass">Glass</option>
+                            <option value="Metals">Metals</option>
+                            <option value="Organic">Organic</option>
+                          </select>
+                          <br>
+                          <br>
+
+
+                
+                          <noscript>
+                            <input type="submit" name="woocommerce_checkout_update_totals" value="Update country" />
+                          </noscript>
+                          <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
+                            <label for="sub" class="">Sub Catagory
+                              <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <br>
+
+                            <select class="form-control form-control-lg" [(ngModel)]="selSubCat" (change)="test()">
+                              <option *ngFor="let sub of subCat">{{sub.SubCatName}}</option>
+                            </select>
+                            <br>
+                            <br>
+                            <!-- <select name="sub_catagory" class="catagory" [(ngModel)]="selSubCat" (change)="test()">
+                              <option *ngFor="let sub of subCat">{{sub.SubCatName}}</option>
+
+                            </select>-->
+                            <noscript>
+                              <input type="submit" name="woocommerce_checkout_update_totals" value="Update country" />
+                            </noscript>
+                          </p>
+                          <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
+                            <label for="billing_address_1" class="">Quantity
+                              <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Do not include measurements like(kg,m,inch etc.)" value="" autocomplete="address-line1"
+                              [(ngModel)]="quantity" />
+                          </p>
+
+                          <p class="form-row form-row-wide address-field validate-required" id="billing_city_field" data-priority="70">
+                            <label for="billing_city" class="">Unit Price
+                              <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text " name="billing_city" id="billing_city" placeholder="Rs." value="" autocomplete="address-level2"
+                              [(ngModel)]="price" />
+                          </p>
+                          <p class="form-row form-row-wide address-field validate-required validate-state" id="billing_state_field" data-priority="80">
+                            <label for="billing_state" class="">Image
+
+                            </label>
+
+                            <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                          </p>
+                          <p class="form-row form-row-wide address-field validate-required validate-postcode" id="billing_postcode_field" data-priority="90">
+                            <label for="billing_postcode" class="">Description
+                              <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder="please include the quantity with the measurements" value="" autocomplete="postal-code"
+                              [(ngModel)]="description" />
+                          </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+
+
+
+
+
+                
+
+                <input (click)="onAddClick()" type="submit" class="button alt" name="woocommerce_checkout_place_order" id="POST" value="ADD RESOURCE"
+                  data-value="Place order" [disabled]="check" />
+
+                <input type="hidden" id="_wpnonce" name="_wpnonce" value="6f6a2b42bd" />
+                <input type="hidden" name="_wp_http_referer" value="/multishop/order/" />
+
+
+
+              </form>
+            </div>
+          </div>
+
+        </article>
+      </div>
+
+    </main>
+    <!-- #main -->
+  </div>
+  <!-- #primary -->
+</div>
